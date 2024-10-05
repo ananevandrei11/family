@@ -1,0 +1,32 @@
+[
+  {
+    "expense": 3,
+    "category": "products",
+    "date": "2024-10-05T00:00:00.000Z",
+    "comments": ""
+  },
+  {
+    "expense": 5,
+    "category": "cafe",
+    "date": "2024-10-05T00:00:00.000Z",
+    "comments": ""
+  },
+  {
+    "expense": 70,
+    "category": "sport",
+    "date": "2024-10-04T00:00:00.000Z",
+    "comments": ""
+  },
+  {
+    "expense": 20,
+    "category": "cafe",
+    "date": "2024-10-05T00:00:00.000Z",
+    "comments": ""
+  },
+  {
+    "expense": 15,
+    "category": "others",
+    "date": "2024-10-05T00:00:00.000Z",
+    "comments": ""
+  }
+]

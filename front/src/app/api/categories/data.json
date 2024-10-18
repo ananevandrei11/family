@@ -1,0 +1,9 @@
+[
+  { "id": 1, "category": "Products" },
+  { "id": 2, "category": "Rent" },
+  { "id": 3, "category": "Sport" },
+  { "id": 4, "category": "Health" },
+  { "id": 5, "category": "Technic" },
+  { "id": 6, "category": "Others" },
+  { "id": 7, "category": "Cafe" }
+]

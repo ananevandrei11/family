@@ -32,7 +32,7 @@ func saveToFile(data interface{}, fileName string) error {
 	return enc.Encode(data)
 }
 
-const filePath = "data.json"
+const filePath = "db/data.json"
 
 func readExpenses() ([]ExpenseData, error) {
 	var expenses []ExpenseData

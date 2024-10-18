@@ -1,1 +1,2 @@
-export { logInfo } from './logInfo';
+export * from './logInfo';
+export * from './convertZodError';

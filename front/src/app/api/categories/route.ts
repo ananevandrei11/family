@@ -5,17 +5,18 @@ import { logInfo } from '@/helpers';
 
 const API_NAME = {
   GET: 'API GET CATEGORIES',
+  POST: 'API POST CATEGORIES',
 };
 
 async function getCategories() {
   const jsonDirectory = path.join(process.cwd(), process.env.PATH_TO_JSON_FILE + '/categories/');
-  const categories = await fs.readFile(jsonDirectory + 'data.json', 'utf8');
+  const categories = await fs.readFile(jsonDirectory + 'categories.json', 'utf8');
   return categories;
 }
 
 async function addCategory(categories: { id: number; category: string }[]) {
   await fs.writeFile(
-    process.cwd() + process.env.PATH_TO_JSON_FILE + '/categories/data.json',
+    process.cwd() + process.env.PATH_TO_JSON_FILE + '/categories/categories.json',
     JSON.stringify(categories),
   );
 }
@@ -37,7 +38,7 @@ export async function POST(request: NextRequest) {
   try {
     const { category } = await request.json();
     if (!category) {
-      logInfo(API_NAME.GET + ' : Category in request not found');
+      logInfo(API_NAME.POST + ' : Category in request not found');
       throw new Error('Category in request not found');
     }
     const categoriesData = await getCategories();
@@ -45,11 +46,11 @@ export async function POST(request: NextRequest) {
     categories.push({ id: categories.length + 1, category });
     await addCategory(categories);
 
-    logInfo(API_NAME.GET + ' : SUCCESS');
+    logInfo(API_NAME.POST + ' : SUCCESS');
     return NextResponse.json({ category }, { status: 200 });
   } catch (err) {
     const message = err instanceof Error ? err.message : JSON.stringify(err);
-    logInfo(API_NAME.GET + ' : ERROR!');
+    logInfo(API_NAME.POST + ' : ERROR!');
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

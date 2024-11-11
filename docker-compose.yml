@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  # front:
+  #   build:
+  #     context: ./front
+  #     dockerfile: Dockerfile
+  #   container_name: front
+  #   ports:
+  #     - '3000:3000'
+  #   environment:
+  #   volumes:
+  #     - ./front:/app
+  #     - /app/node_modules
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - family-network
+
+  postgres:
+    image: postgres:14-alpine
+    container_name: postgres
+    restart: always
+    ports:
+      - "6500:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - family-network
+
+networks:
+  family-network:
+volumes:
+  pgdata:
